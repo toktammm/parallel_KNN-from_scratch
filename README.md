@@ -1,4 +1,4 @@
-# parallel_KNN-from_scratch
+## parallel KNN from scratch
 
 ## Requirements
 - Python 3.5
