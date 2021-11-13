@@ -200,7 +200,7 @@ def main():
     test_X = [[test_X[i], test_y[i]] for i in range(len(test_X))]
 
     k_inputs = range(1, 11)  # to find the optimal value for k in knn
-    validation_accuracies = Parallel(n_jobs=8)(delayed(cross_validation)(train_X, i, folds=10) for i in k_inputs)
+    validation_accuracies = Parallel(n_jobs=multiprocessing.cpu_count()-1)(delayed(cross_validation)(train_X, i, folds=10) for i in k_inputs)
 
     # find the value of k that has the largest accuracy
     k_optimal = np.argmax(np.mean(validation_accuracies, axis=1))
